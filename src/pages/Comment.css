@@ -1,0 +1,58 @@
+.comment-wrap .ant-comment-nested {
+    margin-left: 16px;
+}
+
+.comment-wrap .ant-comment-actions li {
+    width: 100%;
+}
+
+.comment-wrap h3 {
+    color: #343A40;
+    font-weight: bold;
+}
+
+.comment-tabs {
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, .16);
+}
+
+.comment-tabs span {
+    line-height: 48px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #4c5e84;
+    cursor: pointer;
+    margin-right: 45px;
+    text-decoration: none;
+}
+
+.tags {
+    width: 200px;
+}
+
+.tags>span {
+    border-radius: 30px;
+    background-color: #00a7a7;
+    font-size: 12px;
+    color: #fff;
+    padding: 0 5px;
+    white-space: nowrap;
+    line-height: 28px;
+    height: 28px;
+    display: inline-block;
+    margin-right: 6px;
+    margin-bottom: 12px;
+}
+
+.comment-input {
+    position: relative;
+}
+
+.comment-input input {
+    width: 100%;
+}
+
+.comment-input .button {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
