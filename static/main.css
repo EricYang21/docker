@@ -1,0 +1,52 @@
+* {
+  font-family: Lato;
+}
+
+.selector {
+  width: 240px;
+}
+
+.selector-search {
+  margin-left: auto;
+  margin-right: auto;
+  width: 232px;
+}
+
+.selector-entry {
+  display: flex;
+  margin: 4px 0px;
+}
+
+.selector-entry-hidden {
+  display: none;
+}
+
+.shadowy-box {
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.2);
+  padding: 4px;
+  margin: 8px;
+}
+
+.contractor-entry {
+  width: 640px;
+}
+
+.contractor-header {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.contractor-phone {
+  float: right;
+}
+
+.certification {
+  margin-left: 1em;
+}
+
+.no-certification {
+  font-style: italic;
+  color: #888888;
+}
