@@ -2,10 +2,17 @@ import { Button, Card, Col, Row } from "antd";
 import { useState,useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./List.css";
-
+const test=[
+  {
+    id:1,
+    name:'name',
+    address:'address',
+    phone:'phone',
+  }
+]
 const List=()=>{
   const navigate = useNavigate();
-  const [data,setData]=useState();
+  const [data,setData]=useState(test);
   useEffect(()=>{
     if(!sessionStorage.getItem("data"))return;
     const d = JSON.parse(sessionStorage.getItem("data"));
@@ -26,7 +33,7 @@ const List=()=>{
     <br />
     <div className="content">
       <Row gutter={[24,24]} >
-        {data?data.map((item, index) =>(<Col key={index} span={12}>
+        {data&&data.length>0?data.map((item, index) =>(<Col key={index} span={12}>
           <Card  hoverable title={item.name} >
             <Card.Meta title={item.certs}  description={item.address} />
             <Card.Meta description={item.phone} />

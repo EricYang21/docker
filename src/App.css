@@ -2,12 +2,22 @@
   text-align: center;
 }
 
+body {
+  margin: 0;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .header {
   height: 100px;
 }
 
 .index_img {
-margin: 200px 0;
+  margin: 200px 0;
 }
 
 .content {
@@ -58,6 +68,7 @@ margin: 200px 0;
   color: white;
   background-color: #FFAC4A;
 }
+
 .sign-in:hover {
   background-color: #f49a33;
 }
@@ -110,7 +121,7 @@ margin: 200px 0;
 .find-btn {
   border: 3px solid #002951;
   color: black;
-  background-color:#FFAC4A;
+  background-color: #FFAC4A;
   height: 58px;
   width: 216px;
   cursor: pointer;
@@ -160,7 +171,7 @@ margin: 200px 0;
 .card-btn {
   color: white;
   background-color: #e86502;
-  font-family:'Times New Roman', Times, serif;
+  font-family: 'Times New Roman', Times, serif;
   border: none;
   border-radius: 5px;
   font-size: 20px;
@@ -208,9 +219,10 @@ label {
   margin-top: 10px;
 }
 
-input[type="text"], input[type="password"] {
+input[type="text"],
+input[type="password"] {
   padding: 5px;
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   border-radius: 5px;
   width: 90%;
   margin-bottom: 10px;

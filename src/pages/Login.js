@@ -1,27 +1,25 @@
+import { message } from "antd";
+import axios from "axios";
 import React, { useState } from "react";
+import { useNavigate } from "react-router";
 
 function Login() {
-
+  const navigate = useNavigate()
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleLogin = (event) => {
     event.preventDefault();
     const loginData = {email, password};
-    fetch("http://localhost:8080/user/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(loginData),
+    axios.post('/user/login',loginData).then(res=>{
+      if(res.data.isOk){
+        message.success("login successfully!");
+        sessionStorage.setItem("userId", res.data.userId);
+        navigate("/profile");
+      }else{
+        message.error("there is an error in login request, maybe you put a wrong password, or maybe you didn't sign up, or maybe your email is wrong, please try again");
+      }
     })
-      .then( (res) => {
-        if(res.ok) {
-          return res.json();
-        } else {
-          alert("There is an unexpected error. Please try again later.");
-        }
-      });
   };
 
   return (

@@ -1,7 +1,10 @@
+import { message } from "antd";
+import axios from "axios";
 import React, { useState } from "react";
+import { useNavigate } from "react-router";
 
 function SignUp() {
-
+  const navigate = useNavigate()
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -10,24 +13,19 @@ function SignUp() {
   const handleSignUp = (event) => {
     event.preventDefault();
     if (password !== secondPassword) {
-      alert("Sorry, the password you entered doesn't match. Please try again.");
+      message.warning("Sorry, the password you entered doesn't match. Please try again.");
       return;
     }
     const signUpData = {username, email, password};
-    fetch("http://localhost:8080/user/signUp", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(signUpData),
+    axios.post('/user/signUp',signUpData).then(res=>{
+      if(res.data.isOk){
+        message.success("Sign up successfully!");
+        sessionStorage.setItem("userId", res.data.userId);
+        navigate("/profile");
+      }else{
+        message.error("there is an error in signUp request, please try again");
+      }
     })
-      .then( (res) => {
-        if(res.ok) {
-          return res.json();
-        } else {
-          alert("There is an unexpected error. Please try again later.");
-        }
-      });
   };
 
   return (

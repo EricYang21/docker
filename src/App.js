@@ -1,13 +1,24 @@
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import {Link} from "react-router-dom";
 import Home from "./pages/Home";
 import List from "./pages/List";
 import Login from "./pages/Login";
 import SignUp from"./pages/Signup";
 import Comment from "./pages/Comment";
+import Profile from "./pages/Profile";
+import { useEffect } from "react";
+import axios from "axios";
 
 function App() {
+  const location=useLocation()
+  useEffect(()=>{
+    console.log(location.pathname);
+    const userId=sessionStorage.getItem("userId")
+    if(userId){
+      axios.post('/browserHistory',{userId:Number(userId),link:location.pathname})
+    }
+  },[location.pathname])
   return (
     <div>
       <div className='App'>
@@ -46,9 +57,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/list" element={<List />} />
+        <Route path="/comment/:id" element={<Comment />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />}/>
-        <Route path="/comment/:id" element={<Comment />} />
+        <Route path="/profile" element={<Profile />}/>
       </Routes>
       <div className='copyright'>
         <div className="content">
