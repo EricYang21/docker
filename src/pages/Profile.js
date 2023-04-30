@@ -268,7 +268,7 @@ export default () => {
                 setImageUrl(info.file.response);
               }
             }}
-            showUploadList={false} action={"http://localhost:8080/file/upload"}>
+            showUploadList={false} action={"http://docker_backend_1:8080/file/upload"}>
             {imageUrl ? <img src={imageUrl} alt="avatar" style={{ width: "100%" }} /> : <div style={{ marginTop: 8 }}>Upload</div>}
           </Upload>
         </div>
