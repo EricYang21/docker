@@ -1,4 +1,4 @@
-const url = process.env.API_URL || "http://localhost:8080";
+const url = process.env.API_URL || "http://docker_backend_1:8080";
 
 export function query(sources, tasks, postcode) {
   let body = {
