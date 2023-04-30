@@ -5,11 +5,12 @@ import "./List.css";
 const test=[
   {
     id:1,
-    name:'name',
-    address:'address',
-    phone:'phone',
+    name:"name",
+    address:"address",
+    phone:"phone",
   }
-]
+];
+
 const List=()=>{
   const navigate = useNavigate();
   const [data,setData]=useState(test);
@@ -43,10 +44,17 @@ const List=()=>{
               navigate(`/comment/${item.id}`);
             }}>show comment</Button>
           </Card>
-        </Col>)):<p>
-          xxxxxxxxxxxxxxx
-        </p>}
+        </Col>)):<div>
+          <p>Dear Customer,</p>
+          <p>We regret to inform that your requested parameters did not yield any results, and at this time we do not have any suitable retrofit suppliers.</p>
+          <p>However, we encourage you to continue searching our website for other products that may meet your needs.</p>
+          <p>Our selection is constantly expanding, and we are confident that you will be able to find something that fits your requirements.</p>
+          <p>Thank you for your understanding, and we apologize for any inconvenience this may have caused.</p>
+          <p>Best regards,</p>
+          <p>BNE</p>
+        </div>}
       </Row>
+      <Button type="primary" onClick={()=>navigate(-1)}>back</Button>
     </div>
 
   </div>;

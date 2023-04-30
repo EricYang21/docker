@@ -4,14 +4,14 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router";
 
 function Login() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleLogin = (event) => {
     event.preventDefault();
     const loginData = {email, password};
-    axios.post('/user/login',loginData).then(res=>{
+    axios.post("/user/login",loginData).then(res=>{
       if(res.data.isOk){
         message.success("login successfully!");
         sessionStorage.setItem("userId", res.data.userId);
@@ -19,7 +19,7 @@ function Login() {
       }else{
         message.error("there is an error in login request, maybe you put a wrong password, or maybe you didn't sign up, or maybe your email is wrong, please try again");
       }
-    })
+    });
   };
 
   return (

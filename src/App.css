@@ -2,16 +2,6 @@
   text-align: center;
 }
 
-body {
-  margin: 0;
-}
-
-.center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .header {
   height: 100px;
 }
@@ -50,6 +40,11 @@ body {
   margin: 10px;
 }
 
+.login-icon {
+  width: 30px;
+  height: 30px;
+}
+
 .sign-btn {
   margin-left: 200px;
 }
@@ -68,7 +63,6 @@ body {
   color: white;
   background-color: #FFAC4A;
 }
-
 .sign-in:hover {
   background-color: #f49a33;
 }
@@ -87,6 +81,7 @@ body {
   height: 64px;
   display: flex;
   align-items: center;
+  color:#fee8c8;
 }
 
 .menu_item:hover {
@@ -121,7 +116,7 @@ body {
 .find-btn {
   border: 3px solid #002951;
   color: black;
-  background-color: #FFAC4A;
+  background-color:#FFAC4A;
   height: 58px;
   width: 216px;
   cursor: pointer;
@@ -171,7 +166,7 @@ body {
 .card-btn {
   color: white;
   background-color: #e86502;
-  font-family: 'Times New Roman', Times, serif;
+  font-family:'Times New Roman', Times, serif;
   border: none;
   border-radius: 5px;
   font-size: 20px;
@@ -219,10 +214,9 @@ label {
   margin-top: 10px;
 }
 
-input[type="text"],
-input[type="password"] {
+input[type="text"], input[type="password"] {
   padding: 5px;
-  /* border: 1px solid blue; */
+  border: 1px solid blue;
   border-radius: 5px;
   width: 90%;
   margin-bottom: 10px;
@@ -242,4 +236,13 @@ input[type="submit"] {
 
 input[type="submit"]:hover {
   background-color: royalblue;
+}
+
+* {
+  font-family: "Barlow", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color:#ca5902;
 }

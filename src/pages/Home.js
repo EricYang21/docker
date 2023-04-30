@@ -51,9 +51,15 @@ function Home() {
                 return;
               }
               axios.post("http://localhost:8080/query",{postcode,task,source}).then(res=>{
-                sessionStorage.setItem("data",JSON.stringify(res.data));
-              });
-              navigate("/list");
+                              if(res&&res.data&&res.data.length>0){
+                                sessionStorage.setItem("data",JSON.stringify(res.data));
+                                navigate("/list");
+                              }else{
+                                sessionStorage.setItem("data","[]");
+                                navigate("/list");
+                              }
+                            });
+
             }}>
               Find tradespeople
             </div>

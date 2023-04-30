@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router";
 
 function SignUp() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -17,7 +17,7 @@ function SignUp() {
       return;
     }
     const signUpData = {username, email, password};
-    axios.post('/user/signUp',signUpData).then(res=>{
+    axios.post("/user/signUp",signUpData).then(res=>{
       if(res.data.isOk){
         message.success("Sign up successfully!");
         sessionStorage.setItem("userId", res.data.userId);
@@ -25,7 +25,7 @@ function SignUp() {
       }else{
         message.error("there is an error in signUp request, please try again");
       }
-    })
+    });
   };
 
   return (

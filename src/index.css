@@ -109,3 +109,8 @@ select {
 .right button:hover {
     cursor: pointer;
 }
+
+/* Global Font */
+* {
+    font-family: "Barlow", sans-serif;
+}

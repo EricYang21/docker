@@ -1,4 +1,4 @@
-import { Avatar, Col, Row, Input, Space, Button, Card } from "antd";
+import { Avatar, Col, Row, Input, Space, Button } from "antd";
 import { Comment as AComment } from "@ant-design/compatible";
 import React, { useState,useEffect } from "react";
 import { useNavigate } from "react-router-dom";
@@ -40,7 +40,7 @@ const CommentInput=({setEdit,onComment,data={},...props})=>{
         }}>Anonymous</Button>
         <Button type="primary" onClick={()=>{
           const contractorId = JSON.parse(sessionStorage.getItem("item")).id;
-          axios.post("/commentSave",{contractorId, ...data,parentCommentId: data.id||0,childCommentId:0,content:text,userId:sessionStorage.getItem('userId')}).then(res=>{
+          axios.post("/commentSave",{contractorId, ...data,parentCommentId: data.id||0,childCommentId:0,content:text,userId:sessionStorage.getItem("userId")}).then(res=>{
             console.log(res);
             setEdit&&setEdit(false);
             setText("");
@@ -74,11 +74,12 @@ const CommentWrap=({onComment,data})=>{
   </AComment>;
 };
 const test={"commentAndUserList":[
+  // eslint-disable-next-line max-len
   {"comment":{"id":16,"content":"Apollo Electrical Solutions Ltd","contractorId":86,"userId":0,"parentCommentId":0,"childCommentId":0},"userInComment":{"avatar":"https://avatarspe.oss-cn-beijing.aliyuncs.com/2023/04/25/pq05dsbckkudxszk1v74rstvosrfi1mm9bob5qh81dkk7lzxdownload.png","username":"Anonymous"}},{"comment":{"id":17,"content":"you are the best","contractorId":86,"userId":0,"parentCommentId":16,"childCommentId":0},"userInComment":{"avatar":"https://avatarspe.oss-cn-beijing.aliyuncs.com/2023/04/25/pq05dsbckkudxszk1v74rstvosrfi1mm9bob5qh81dkk7lzxdownload.png","username":"Anonymous"}}],
-  "graph":{"longitude":"-2.596472","latitude":"51.4559"}}
+"graph":{"longitude":"-2.596472","latitude":"51.4559"}};
 
 const fmtComment=input=>{
-  const comment=input.map(i=>({...i.comment,...i.userInComment}))
+  const comment=input.map(i=>({...i.comment,...i.userInComment}));
   const res = [];
   for(let i=0;i<comment.length;i++){
     if(comment[i].parentCommentId===0){
@@ -92,15 +93,12 @@ const fmtComment=input=>{
     }
   }
   return res;
-}
-// const center={
-//   lat: -2.745,
-//   lng: 51.4559
-// }
+};
+
 const Comment=()=>{
   const navigate = useNavigate();
-  const [center,setCenter]=useState()
-  
+  const [center,setCenter]=useState();
+
   const [data,setData]=useState(fmtComment(test.commentAndUserList));
   const [item,setItem]=useState({});
   const { isLoaded } = useJsApiLoader({
@@ -123,7 +121,7 @@ const Comment=()=>{
       setCenter({
         lat: parseFloat(res.data.graph.latitude),
         lng: parseFloat(res.data.graph.longitude)
-      })
+      });
     });
   };
   useEffect(()=>{
@@ -162,7 +160,7 @@ const Comment=()=>{
             </Col>
           </Row>
           <br />
-         
+
         </Col>
         <Col span={12}>
           <h3 id="Comment">Comment</h3>
@@ -186,7 +184,7 @@ const Comment=()=>{
           <CommentInput onComment={refresh} rows={8}></CommentInput>
         </Col>
       </Row>
-     
+
     </div>
   </div>;
 };
