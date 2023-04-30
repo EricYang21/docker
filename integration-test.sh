@@ -9,7 +9,7 @@ mvn_pid=$!
 # mostly copied from so
 attempt=0
 max_attempts=10
-until $(curl --output /dev/null --silent --head --fail http://docker_backend_1:8080); do
+until $(curl --output /dev/null --silent --head --fail http://172.17.0.1:8080); do
     if [ ${attempt} -eq ${max_attempts} ];then
       echo "Server did not come up in time"
       exit 1
