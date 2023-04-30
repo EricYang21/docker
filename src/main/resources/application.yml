@@ -1,8 +1,8 @@
 retrofit:
   jwt:
-    privateKeyPath: /app/rsa/rsa-key
+    privateKeyPath: rsa\rsa-key
     expire: 120
-  avatar: D:\year2\spe\avatar\timg.jpg
+  avatar: https://avatarspe.oss-cn-beijing.aliyuncs.com/2023/04/27/134f6nve7z6xshm91p2h9cyht5l2j0gny8a9zkx8dxck0zsftimg.jpg
 aliyun:
   oss:
     endpoint: oss-cn-beijing.aliyuncs.com

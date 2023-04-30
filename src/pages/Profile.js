@@ -242,7 +242,7 @@ export default () => {
                     browse history
         </div>
         <div className="p20">
-          {data.browseHistory.map((item,index)=><p key={index}>{"http://localhost:3000"+item.link}</p>)}
+          {data.browseHistory.map((item,index)=><p key={index}>{"http://docker_backend_1:3000"+item.link}</p>)}
         </div>
         <div id='comment' className="name">
                     comment management
