@@ -1,0 +1,21 @@
+FROM ubuntu:22.04
+
+# 替换为阿里云的APT源
+RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak && \
+    sed -i 's/archive.ubuntu.com/mirrors.aliyun.com/g' /etc/apt/sources.list && \
+    sed -i 's/security.ubuntu.com/mirrors.aliyun.com/g' /etc/apt/sources.list
+
+# 更新APT并安装一些软件包
+RUN apt-get update && \
+    apt-get install -y openjdk-17-jre maven
+
+RUN java -version
+COPY ./settings.xml /etc/maven/settings.xml
+
+WORKDIR /app
+
+COPY . ./
+
+COPY ./src ./src
+
+EXPOSE 8080
