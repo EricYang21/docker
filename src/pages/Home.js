@@ -50,7 +50,7 @@ function Home() {
                 message.error("Please enter source");
                 return;
               }
-              axios.post("http://172.17.0.1:8080/query",{postcode,task,source}).then(res=>{
+              axios.post("http://localhost:8080/query",{postcode,task,source}).then(res=>{
                               if(res&&res.data&&res.data.length>0){
                                 sessionStorage.setItem("data",JSON.stringify(res.data));
                                 navigate("/list");

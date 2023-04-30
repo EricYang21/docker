@@ -242,7 +242,7 @@ export default () => {
                     browse history
         </div>
         <div className="p20">
-          {data.browseHistory.map((item,index)=><p key={index}>{"http://172.17.0.1:3000"+item.link}</p>)}
+          {data.browseHistory.map((item,index)=><p key={index}>{"http://localhost:3000"+item.link}</p>)}
         </div>
         <div id='comment' className="name">
                     comment management
@@ -268,7 +268,7 @@ export default () => {
                 setImageUrl(info.file.response);
               }
             }}
-            showUploadList={false} action={"http://172.17.0.1:8080/file/upload"}>
+            showUploadList={false} action={"http://localhost:8080/file/upload"}>
             {imageUrl ? <img src={imageUrl} alt="avatar" style={{ width: "100%" }} /> : <div style={{ marginTop: 8 }}>Upload</div>}
           </Upload>
         </div>
