@@ -4,7 +4,7 @@ import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import {ConfigProvider, message} from "antd";
 import axios from "axios";
-axios.defaults.baseURL="http://docker_backend_1:8080/";
+axios.defaults.baseURL="http://localhost:8080/";
 axios.interceptors.response.use(success=>{
   return success;
 },error=>{
