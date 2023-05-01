@@ -24,7 +24,7 @@ public class SearchController {
 
   @Autowired VerifiedTradeHttps verifiedTradeHttps;
 
-  @PostMapping(path = "/query", produces = "application/json")
+  @PostMapping(path = "api/query", produces = "application/json")
   @CrossOrigin
   public List<Contractor> query(@RequestBody Request req) throws Exception {
 
